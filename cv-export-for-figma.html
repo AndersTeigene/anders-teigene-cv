@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anders Teigene - CV Export for Figma</title>
+    
+    <!-- Import DM Mono Font -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'DM Mono', monospace;
+            background-color: #ffffff;
+            color: #000000;
+            line-height: 1;
+        }
+        
+        .cv-container {
+            width: 1182px;
+            margin: 0 auto;
+            padding: 236px;
+            background-color: #ffffff;
+        }
+        
+        /* Header Styles */
+        .header {
+            margin-bottom: 40px;
+        }
+        
+        .hero-name {
+            font-size: 96px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            color: #000000;
+        }
+        
+        .subtitle {
+            font-size: 36px;
+            font-weight: 300;
+            color: #666666;
+            margin-bottom: 24px;
+        }
+        
+        .contact {
+            font-size: 28px;
+            font-weight: 300;
+            color: #000000;
+            margin-bottom: 32px;
+        }
+        
+        .red-line {
+            width: 100%;
+            height: 6px;
+            background-color: #FF0000;
+        }
+        
+        /* Results Grid */
+        .results-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 64px;
+        }
+        
+        .result-card {
+            background-color: #F8F8F8;
+            border-left: 8px solid #FF0000;
+            padding: 30px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .result-metric {
+            font-size: 24px;
+            font-weight: 500;
+            color: #FF0000;
+            margin-right: 16px;
+        }
+        
+        .result-description {
+            font-size: 24px;
+            font-weight: 300;
+            color: #000000;
+        }
+        
+        /* Section Headers */
+        .section-header {
+            font-size: 48px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 4%;
+            color: #000000;
+            margin-bottom: 32px;
+        }
+        
+        /* Experience Section */
+        .experience-section {
+            margin-bottom: 64px;
+        }
+        
+        .experience-item {
+            margin-bottom: 50px;
+        }
+        
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+        }
+        
+        .job-title {
+            font-size: 32px;
+            font-weight: 500;
+            text-transform: uppercase;
+            color: #000000;
+        }
+        
+        .date-range {
+            font-size: 28px;
+            font-weight: 300;
+            color: #000000;
+        }
+        
+        .company-row {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        
+        .company {
+            font-size: 28px;
+            font-weight: 300;
+            color: #FF0000;
+        }
+        
+        .location {
+            font-size: 28px;
+            font-weight: 300;
+            color: #000000;
+        }
+        
+        .job-description {
+            font-size: 26px;
+            font-weight: 300;
+            line-height: 1.5;
+            color: #000000;
+            margin-bottom: 24px;
+        }
+        
+        /* Achievement Box */
+        .achievement-box {
+            background-color: #F8F8F8;
+            border-left: 6px solid #FF0000;
+            padding: 16px 24px;
+            margin-bottom: 16px;
+        }
+        
+        .achievement-label {
+            font-size: 24px;
+            font-weight: 500;
+            color: #FF0000;
+        }
+        
+        .achievement-description {
+            font-size: 24px;
+            font-weight: 300;
+            color: #000000;
+            margin-left: 8px;
+        }
+        
+        /* Skills Section */
+        .skills-section {
+            margin-bottom: 64px;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+        }
+        
+        .skill-category-title {
+            font-size: 32px;
+            font-weight: 500;
+            text-transform: uppercase;
+            color: #000000;
+            margin-bottom: 24px;
+        }
+        
+        .skill-item {
+            font-size: 26px;
+            font-weight: 300;
+            line-height: 1.5;
+            color: #000000;
+            margin-bottom: 12px;
+        }
+        
+        /* Education Section */
+        .education-section {
+            margin-bottom: 64px;
+        }
+        
+        .education-item {
+            margin-bottom: 32px;
+        }
+        
+        .education-degree {
+            font-size: 32px;
+            font-weight: 500;
+            text-transform: uppercase;
+            color: #000000;
+            margin-bottom: 8px;
+        }
+        
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 16px;
+        }
+        
+        .education-institution {
+            font-size: 28px;
+            font-weight: 300;
+            color: #FF0000;
+        }
+        
+        .education-date {
+            font-size: 28px;
+            font-weight: 300;
+            color: #000000;
+        }
+        
+        .education-description {
+            font-size: 26px;
+            font-weight: 300;
+            line-height: 1.5;
+            color: #000000;
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <!-- Header -->
+        <div class="header">
+            <h1 class="hero-name">ANDERS TEIGENE</h1>
+            <p class="subtitle">Produktledare | 8+ år skalning av organisationer | Resultatdriven strategisk ledning</p>
+            <p class="contact">Stockholm, Sverige | anders@teigene.se | +46 70 XXX XXXX | LinkedIn: andersteigene</p>
+            <div class="red-line"></div>
+        </div>
+        
+        <!-- Results Grid -->
+        <div class="results-grid">
+            <div class="result-card">
+                <span class="result-metric">4→25</span>
+                <span class="result-description">Personer skalning med 0% avgång över 4 år</span>
+            </div>
+            <div class="result-card">
+                <span class="result-metric">2%</span>
+                <span class="result-description">Försäljningstillväxt genom AI-initiativ</span>
+            </div>
+            <div class="result-card">
+                <span class="result-metric">74 NPS</span>
+                <span class="result-description">Streaming-tjänst användarupplevelse</span>
+            </div>
+            <div class="result-card">
+                <span class="result-metric">16%</span>
+                <span class="result-description">Konverteringsförbättring genom produktoptimering</span>
+            </div>
+        </div>
+        
+        <!-- Experience Section -->
+        <div class="experience-section">
+            <h2 class="section-header">EXPERIENCE</h2>
+            
+            <!-- Global Design Director -->
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3 class="job-title">GLOBAL DESIGN DIRECTOR</h3>
+                    <span class="date-range">Aug 2023 - Present</span>
+                </div>
+                <div class="company-row">
+                    <span class="company">H&M Group</span>
+                    <span class="location">Stockholm</span>
+                </div>
+                <p class="job-description">Kontinuerlig förbättring av slutanvändarupplevelsen genom strategier för kundupplevelse</p>
+                <div class="achievement-box">
+                    <span class="achievement-label">Customer Journey Framework:</span>
+                    <span class="achievement-description">Förbättrade design- och produkteffektivitet med snabbare leverans och starkare varumärkesengagemang</span>
+                </div>
+                <div class="achievement-box">
+                    <span class="achievement-label">AI Powered Fashion:</span>
+                    <span class="achievement-description">Ökade försäljningen med 2% och varumärkestycke med 10% genom skalning av modets påverkan</span>
+                </div>
+                <div class="achievement-box">
+                    <span class="achievement-label">Global Navigation Redesign:</span>
+                    <span class="achievement-description">1,5% ökning av försäljningen globalt genom ny navigationsstruktur och minskad friktion</span>
+                </div>
+            </div>
+            
+            <!-- Product Area Lead Design -->
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3 class="job-title">PRODUCT AREA LEAD DESIGN</h3>
+                    <span class="date-range">Okt 2022 - Aug 2023</span>
+                </div>
+                <div class="company-row">
+                    <span class="company">H&M Group</span>
+                    <span class="location">Stockholm</span>
+                </div>
+                <p class="job-description">Ökade samarbete och designmognad för Inspire, Guide och Decide områdena</p>
+                <div class="achievement-box">
+                    <span class="achievement-label">Design Maturity:</span>
+                    <span class="achievement-description">Bättre tid till marknad genom fokus på kvalitativa metoder</span>
+                </div>
+                <div class="achievement-box">
+                    <span class="achievement-label">Rebranding Initiative:</span>
+                    <span class="achievement-description">Förbättrad varumärkessammanhållning och snabbare adoption</span>
+                </div>
+            </div>
+            
+            <!-- Mentor -->
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3 class="job-title">MENTOR</h3>
+                    <span class="date-range">Sep 2022 - Present</span>
+                </div>
+                <div class="company-row">
+                    <span class="company">All of Us</span>
+                    <span class="location">Stockholm</span>
+                </div>
+                <p class="job-description">Stöd för mångfald och inkludering genom mentorskap</p>
+                <div class="achievement-box">
+                    <span class="achievement-label">Diversity Impact:</span>
+                    <span class="achievement-description">Förbättrad mångfaldsmedvetenhet och pågående mentorskapseffekt</span>
+                </div>
+            </div>
+            
+            <!-- COO / Creative Director -->
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3 class="job-title">COO / CREATIVE DIRECTOR</h3>
+                    <span class="date-range">Nov 2021 - Okt 2022</span>
+                </div>
+                <div class="company-row">
+                    <span class="company">SPLIT</span>
+                    <span class="location">Stockholm</span>
+                </div>
+                <p class="job-description">Förbättrade försäljning och effektivitet genom bättre processer och tydlig vision</p>
+                <div class="achievement-box">
+                    <span class="achievement-label">Process Improvement:</span>
+                    <span class="achievement-description">Bättre processklarhet genom förnyad varumärkesidentitet och operativ effektivitet</span>
+                </div>
+            </div>
+            
+            <!-- Head of CX and Brand -->
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3 class="job-title">HEAD OF CX AND BRAND</h3>
+                    <span class="date-range">Feb 2020 - Feb 2022</span>
+                </div>
+                <div class="company-row">
+                    <span class="company">Tele2</span>
+                    <span class="location">Stockholm</span>
+                </div>
+                <p class="job-description">Skapade Penny-varumärket för prismedvetna användare</p>
+                <div class="achievement-box">
+                    <span class="achievement-label">Brand Creation:</span>
+                    <span class="achievement-description">Andraplatsen i Svenska Designpriset för varumärke</span>
+                </div>
+                <div class="achievement-box">
+                    <span class="achievement-label">Streaming Service:</span>
+                    <span class="achievement-description">74 NPS och ökad kundlojalitet genom integrerad streamingupplevelse</span>
+                </div>
+            </div>
+            
+            <!-- Head of CX and Product -->
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3 class="job-title">HEAD OF CX AND PRODUCT</h3>
+                    <span class="date-range">Feb 2019 - Jan 2020</span>
+                </div>
+                <div class="company-row">
+                    <span class="company">Tele2</span>
+                    <span class="location">Stockholm</span>
+                </div>
+                <p class="job-description">Utvecklade produkt- och CX-strategi för Penny</p>
+                <div class="achievement-box">
+                    <span class="achievement-label">Strategic Foundation:</span>
+                    <span class="achievement-description">Etablerade designgrunder för framtida produktutveckling</span>
+                </div>
+            </div>
+            
+            <!-- UX Manager -->
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3 class="job-title">UX MANAGER</h3>
+                    <span class="date-range">Aug 2017 - Feb 2019</span>
+                </div>
+                <div class="company-row">
+                    <span class="company">Tele2</span>
+                    <span class="location">Stockholm</span>
+                </div>
+                <p class="job-description">Skalade CX-organisationen och ledde agil transformation</p>
+                <div class="achievement-box">
+                    <span class="achievement-label">Team Scaling:</span>
+                    <span class="achievement-description">Växte från 4 till 25 personer med ansvar för rekrytering, budget och teamkultur</span>
+                </div>
+                <div class="achievement-box">
+                    <span class="achievement-label">Capability Building:</span>
+                    <span class="achievement-description">+16% checkout-förbättring genom kapacitetsbyggande</span>
+                </div>
+                <div class="achievement-box">
+                    <span class="achievement-label">IT-CX Alignment:</span>
+                    <span class="achievement-description">Nära samordning mellan IT och CX för säker påverkan från båda</span>
+                </div>
+                <div class="achievement-box">
+                    <span class="achievement-label">Agile Transformation:</span>
+                    <span class="achievement-description">Snabbre leveranskadans genom agil implementation</span>
+                </div>
+            </div>
+            
+            <!-- UX Lead -->
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3 class="job-title">UX LEAD</h3>
+                    <span class="date-range">Feb 2016 - Aug 2017</span>
+                </div>
+                <div class="company-row">
+                    <span class="company">Tele2</span>
+                    <span class="location">Stockholm</span>
+                </div>
+                <p class="job-description">Förbättrade köpflödet och etablerade designsystem</p>
+                <div class="achievement-box">
+                    <span class="achievement-label">Purchase Flow:</span>
+                    <span class="achievement-description">+16% förbättring av konverteringsgrad genom omdesign av köpflödet</span>
+                </div>
+            </div>
+            
+            <!-- Campaign Manager -->
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3 class="job-title">CAMPAIGN MANAGER</h3>
+                    <span class="date-range">Feb 2014 - Okt 2014</span>
+                </div>
+                <div class="company-row">
+                    <span class="company">The Green Party</span>
+                    <span class="location">Stockholm</span>
+                </div>
+                <p class="job-description">Kampanjstrategi för riksdagsvalet 2014</p>
+            </div>
+            
+            <!-- Art Director (Happiness Brussels) -->
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3 class="job-title">ART DIRECTOR</h3>
+                    <span class="date-range">Mar 2013 - Dec 2013</span>
+                </div>
+                <div class="company-row">
+                    <span class="company">Happiness Brussels</span>
+                    <span class="location">Bryssel</span>
+                </div>
+                <p class="job-description">Pitch-arbete för Toyota, Nivea, Martini</p>
+            </div>
+            
+            <!-- Konsult Innovation -->
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3 class="job-title">KONSULT INNOVATION</h3>
+                    <span class="date-range">Sep 2012 - Okt 2012</span>
+                </div>
+                <div class="company-row">
+                    <span class="company">Espalhe</span>
+                    <span class="location">São Paulo</span>
+                </div>
+                <p class="job-description">Kreativitetsworkshops baserade på Hyper Island-metoder</p>
+            </div>
+            
+            <!-- Konsult -->
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3 class="job-title">KONSULT</h3>
+                    <span class="date-range">Sep 2012</span>
+                </div>
+                <div class="company-row">
+                    <span class="company">+Castro Innovation House</span>
+                    <span class="location">Buenos Aires</span>
+                </div>
+                <p class="job-description">Learning-by-doing kreativitetsworkshops</p>
+            </div>
+            
+            <!-- Art Director (Mondelez) -->
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3 class="job-title">ART DIRECTOR</h3>
+                    <span class="date-range">Jul 2012 - Aug 2012</span>
+                </div>
+                <div class="company-row">
+                    <span class="company">Mondelez International</span>
+                    <span class="location">Buenos Aires</span>
+                </div>
+                <p class="job-description">Spjutspetsprojektet Fly Garage</p>
+            </div>
+            
+            <!-- Art Director (BBH London) -->
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3 class="job-title">ART DIRECTOR</h3>
+                    <span class="date-range">Apr 2012 - Jun 2012</span>
+                </div>
+                <div class="company-row">
+                    <span class="company">BBH London</span>
+                    <span class="location">London</span>
+                </div>
+                <p class="job-description">Globala annonser för British Airways, Audi, Google, Johnnie Walker</p>
+            </div>
+        </div>
+        
+        <!-- Skills Section -->
+        <div class="skills-section">
+            <h2 class="section-header">SKILLS</h2>
+            <div class="skills-grid">
+                <div>
+                    <h3 class="skill-category-title">PRODUKTLEDNING</h3>
+                    <div class="skill-item">Produktstrategi & Roadmap</div>
+                    <div class="skill-item">Feature-prioritering</div>
+                    <div class="skill-item">Go-to-market</div>
+                    <div class="skill-item">A/B-testing & Analytics</div>
+                </div>
+                <div>
+                    <h3 class="skill-category-title">ORGANISATIONSLEDNING</h3>
+                    <div class="skill-item">Teambyggande & Skalning</div>
+                    <div class="skill-item">Agil implementation</div>
+                    <div class="skill-item">Budget- & leveransansvar</div>
+                    <div class="skill-item">Cross-funktionell samarbete</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Education Section -->
+        <div class="education-section">
+            <h2 class="section-header">EDUCATION</h2>
+            
+            <div class="education-item">
+                <h3 class="education-degree">Interactive Art Director</h3>
+                <div class="education-header">
+                    <span class="education-institution">Hyper Island, Stockholm</span>
+                    <span class="education-date">Aug 2011 - Jun 2012</span>
+                </div>
+                <p class="education-description">Utbildningen fokuserade på hur man skapar fantastiska digitala upplevelser som kan ha genomslag. Här föddes min kärlek till design thinking.</p>
+            </div>
+            
+            <div class="education-item">
+                <h3 class="education-degree">BA Digital Media Design</h3>
+                <div class="education-header">
+                    <span class="education-institution">University of Arts London</span>
+                    <span class="education-date">Sep 2009 - Jun 2011</span>
+                </div>
+                <p class="education-description">Djup förståelse för design från både teoretisk och praktisk synvinkel genom brett digitalt program.</p>
+            </div>
+            
+            <div class="education-item">
+                <h3 class="education-degree">Konsthistoria</h3>
+                <div class="education-header">
+                    <span class="education-institution">Uppsala Universitet</span>
+                    <span class="education-date">Aug 2007 - Dec 2007</span>
+                </div>
+                <p class="education-description">Studerade hur tidens anda påverkar konst och vice versa.</p>
+            </div>
+            
+            <div class="education-item">
+                <h3 class="education-degree">Finsnickeri</h3>
+                <div class="education-header">
+                    <span class="education-institution">Bolandsskolan, Uppsala</span>
+                    <span class="education-date">Jan 2006 - Jun 2007</span>
+                </div>
+                <p class="education-description">Lärde mig precision och hantverk - att ta rått material och skapa något vackert.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
